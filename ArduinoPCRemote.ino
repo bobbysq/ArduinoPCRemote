@@ -1,8 +1,8 @@
-#include <HID.h>
-#include <Keyboard.h>
-#include <Mouse.h>
-//#include <HID-Project.h>
-//#include <HID-Settings.h>
+//#include <HID.h>
+//#include <Keyboard.h>
+//#include <Mouse.h>
+#include <HID-Project.h>
+#include <HID-Settings.h>
 #include <SoftwareSerial.h>
 
 int TX_PIN=3;
@@ -21,8 +21,8 @@ void setup() {
   while (!BT) {
     ;
   }
-//  Mouse.begin();
-//  Keyboard.begin();
+  Mouse.begin();
+  Keyboard.begin();
 }
 
 void loop() {
@@ -30,30 +30,30 @@ void loop() {
   byte startByte;
   if (BT.available()) {
     startByte = byte(BT.read());
-    if (startByte==206){
+    if (startByte==0xCE){
       String message = String(BT.readStringUntil(char(255)));
       digitalWrite(KEYBOARD_LED,HIGH);
-//      Keyboard.print(message); not working right now
+      Keyboard.print(message);
       digitalWrite(KEYBOARD_LED,LOW);
     }
-    else if (startByte==208){
+    else if (startByte==0xD0){
       byte mouse[4];
       BT.readBytes(mouse,4);
-//      Mouse.move(mouse[0],mouse[1],mouse[2]);
+      Mouse.move(mouse[0],mouse[1],mouse[2]);
       digitalWrite(MOUSE_LED,HIGH);
-      int buttons = mouse[3];
+      int buttons = mouse[3]; //1=L,2=M,3=R,4=Doubleclick
       if (buttons==1){
-//        Mouse.click();
+        Mouse.click();
       }
       else if (buttons==2){
-//        Mouse.click(MOUSE_MIDDLE);
+        Mouse.click(MOUSE_MIDDLE);
       }
       else if (buttons==3){
-//        Mouse.click(MOUSE_RIGHT);
+        Mouse.click(MOUSE_RIGHT);
       }
       else if (buttons==4){
-//        Mouse.click();
-//        Mouse.click();
+        Mouse.click();
+        Mouse.click();
       }
       digitalWrite(MOUSE_LED,LOW);
     }
