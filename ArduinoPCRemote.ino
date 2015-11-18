@@ -112,5 +112,8 @@ void combo() {
     delay(50);
     Keyboard.releaseAll();
   }
+  else if (key==10){
+    Keyboard.write(KEY_RETURN);
+  }
 }
 
