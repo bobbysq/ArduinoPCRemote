@@ -12,3 +12,6 @@ Setup Instructions:
 * Setup your Arduino
 * Pair your device with your Arduino
 * Enjoy!
+
+QR Code:  
+![](https://github.com/bobbysq/ArduinoPCRemote/raw/master/qrCode.jpg)
