@@ -5,4 +5,10 @@ Requirements:
 * [HID Project](https://github.com/NicoHood/HID)
 * [HoodLoader2](https://github.com/NicoHood/HoodLoader2) (If using Uno or Mega)
 * [HC-06 or HC-05 Bluetooth module](http://www.aliexpress.com/wholesale?catId=0&initiative_id=AS_20151116112408&SearchText=arduino+bluetooth) (or anything else that does Bluetooth to serial)
-* Android phone
+* Android device
+
+Setup Instructions:
+* Download the APK to your device
+* Setup your Arduino
+* Pair your device with your Arduino
+* Enjoy!
