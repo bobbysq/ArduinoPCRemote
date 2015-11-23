@@ -15,3 +15,8 @@ Setup Instructions:
 
 QR Code:  
 ![](https://github.com/bobbysq/ArduinoPCRemote/raw/master/qrCode.jpg)
+
+Compatabilty:
+* Linux (Debian or derivatives)
+* Possibly Windows
+* Not (Yet) Mac compatiable
